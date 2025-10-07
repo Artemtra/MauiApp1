@@ -1,0 +1,28 @@
+﻿
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label Text="Название" />
+            <Entry  x:Name="TitleText"/>
+            <Label Text="Описание"/>
+            <Entry x:Name="DiscriptionText"/>
+            <Label Text="Дата выхода"/>
+            <DatePicker  x:Name="DiscriptionDate"/>
+            <Button  Text="Сохранить" x:Name="SaveMovieButton" Clicked="Button_Clicked_Movie"/>
+            <Button Text="перейти к авторам" Clicked="Button_Clicked_To_Page2"/>
+
+            <ListView >
+                <ListView.Header>
+                    <StackLayout>
+                        
+                    </StackLayout>
+                </ListView.Header>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
