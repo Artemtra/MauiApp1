@@ -13,5 +13,17 @@
         <Label Text="День рождения"/>
         <DatePicker  x:Name="BirthdayDate" />
         <Button  Text="Сохранить" x:Name="SaveAuthorButton" Clicked="Button_Clicked_Author"/>
-    </VerticalStackLayout>
+        <Button  Text="Home"  Clicked="Button_Clicked_Home"/>
+        <ListView ItemsSource="{Binding AuthorList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Name}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>    
+    
+
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using MauiApp1.Models;
+using MauiApp1.Pages;
 
 namespace MauiApp1
 {
@@ -28,7 +29,6 @@ namespace MauiApp1
         private void Button_Clicked_Movie(object sender, EventArgs e)
         {
             SaveMovie();
-           
         }
 
      
@@ -58,6 +58,11 @@ namespace MauiApp1
         {
             //new NavigationPage(new NewPage1());
             await Navigation.PushModalAsync(new NewPage1());
+        }
+        public async void Button_Clicked_To_Page3(object sender, EventArgs e)
+        {
+            //new NavigationPage(new NewPage1());
+            await Navigation.PushModalAsync(new NewPage2());
         }
     }
 

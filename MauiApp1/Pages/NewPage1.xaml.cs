@@ -1,9 +1,10 @@
 using MauiApp1.Models;
+using System.Collections.ObjectModel;
 namespace MauiApp1;
 
 public partial class NewPage1 : ContentPage
 {
-    public List<Author> AuthorList = new List<Author>();
+    public ObservableCollection<Author> AuthorList { get; set; } = new ObservableCollection<Author>();
     private int IdAuthor = 0;
     public NewPage1()
 	{
@@ -22,6 +23,7 @@ public partial class NewPage1 : ContentPage
         AuthorList.Add(author);
         SaveFileAuthor();
         IdAuthor++;
+        OnPropertyChanged(nameof(AuthorList));
     }
     private void Button_Clicked_Author(object sender, EventArgs e)
     {
@@ -47,5 +49,9 @@ public partial class NewPage1 : ContentPage
 
         }
 
+    }
+    private async void Button_Clicked_Home(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new MainPage());
     }
 }

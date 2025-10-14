@@ -15,13 +15,15 @@
             <DatePicker  x:Name="DiscriptionDate"/>
             <Button  Text="Сохранить" x:Name="SaveMovieButton" Clicked="Button_Clicked_Movie"/>
             <Button Text="перейти к авторам" Clicked="Button_Clicked_To_Page2"/>
-
-            <ListView >
-                <ListView.Header>
-                    <StackLayout>
-                        
-                    </StackLayout>
-                </ListView.Header>
+            <Button  Text="перейти к списку фильмов"  Clicked="Button_Clicked_To_Page3"/>
+            <ListView x:Name="ListFilm">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                          
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </VerticalStackLayout>
     </ScrollView>
