@@ -9,7 +9,9 @@ public partial class NewPage1 : ContentPage
     public NewPage1()
 	{
 		InitializeComponent();
-	}
+        BindingContext = this;
+
+    }
     public void SaveAuthor()
     {
         Author author = new Author();
@@ -20,9 +22,11 @@ public partial class NewPage1 : ContentPage
         author.BirthDay = BirthdayDate.Date;
 
 
+
         AuthorList.Add(author);
+
+        IdAuthor++;    
         SaveFileAuthor();
-        IdAuthor++;
         OnPropertyChanged(nameof(AuthorList));
     }
     private void Button_Clicked_Author(object sender, EventArgs e)
@@ -47,6 +51,7 @@ public partial class NewPage1 : ContentPage
             text = $"{AuthorList[i].BirthDay}";
             await streamWriter.WriteAsync(text);
 
+            OnPropertyChanged(nameof(AuthorList));
         }
 
     }

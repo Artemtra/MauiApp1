@@ -16,5 +16,6 @@ namespace MauiApp1.Models
         public string ThrityName { get; set; }
 
          public DateTime BirthDay { get; set; }
+
     }
 }

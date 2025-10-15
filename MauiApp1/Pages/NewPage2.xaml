@@ -9,14 +9,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button  Text="Home"  Clicked="Button_Clicked"/>
-        <ListView x:Name="ListFilm">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell >
-                       
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <ListView ItemsSource="{Binding AuthorList}">
         </ListView>
     </VerticalStackLayout>
 </ContentPage>

@@ -18,8 +18,16 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Name}"/>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding SecondName}" />
+                                <Label Text="{Binding ThrityName}" />
+                                <Label Text="{Binding BirthdayDate}"/>
+                            </StackLayout>
+                        </ViewCell.View>
                     </ViewCell>
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
