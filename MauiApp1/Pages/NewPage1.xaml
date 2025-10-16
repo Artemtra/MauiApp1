@@ -11,7 +11,7 @@
         <Label Text="Отчество"/>
         <Entry x:Name="ThirtyName" />
         <Label Text="День рождения"/>
-        <DatePicker  x:Name="BirthdayDate" />
+        <DatePicker x:Name="BirthDayText"/>
         <Button  Text="Сохранить" x:Name="SaveAuthorButton" Clicked="Button_Clicked_Author"/>
         <Button  Text="Home"  Clicked="Button_Clicked_Home"/>
         <ListView ItemsSource="{Binding AuthorList}">
@@ -20,10 +20,11 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Name}" />
-                                <Label Text="{Binding SecondName}" />
-                                <Label Text="{Binding ThrityName}" />
-                                <Label Text="{Binding BirthdayDate}"/>
+
+                                <Label Text="{Binding Name}"  Margin="10,0,5,5"/>
+                                <Label Text="{Binding SecondName}"  Margin="10,0,5,5" />
+                                <Label Text="{Binding ThrityName}" Margin="10,0,5,5" />
+                                <Label Text="{Binding BirthDay}" Margin="10,0,5,5"/>
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>

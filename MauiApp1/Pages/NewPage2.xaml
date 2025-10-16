@@ -10,6 +10,22 @@
             HorizontalOptions="Center" />
         <Button  Text="Home"  Clicked="Button_Clicked"/>
         <ListView ItemsSource="{Binding AuthorList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="{Binding Name}"  Margin="10,0,5,5"/>
+                                <Label Text="{Binding SecondName}"  Margin="10,0,5,5" />
+                                <Label Text="{Binding ThrityName}" Margin="10,0,5,5" />
+                                <Label Text="{Binding BirthDay}" Margin="10,0,5,5"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </VerticalStackLayout>
 </ContentPage>
