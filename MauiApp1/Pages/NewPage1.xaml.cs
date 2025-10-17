@@ -13,8 +13,9 @@ public partial class NewPage1 : ContentPage
 	{
 		InitializeComponent();
         BindingContext = this;
-      
-        
+        LoadFileAuthor();
+
+
     }
     public void SaveAuthor()
     {
