@@ -16,11 +16,17 @@
             <Button  Text="Сохранить" x:Name="SaveMovieButton" Clicked="Button_Clicked_Movie"/>
             <Button Text="перейти к авторам" Clicked="Button_Clicked_To_Page2"/>
             <Button  Text="перейти к списку фильмов"  Clicked="Button_Clicked_To_Page3"/>
-            <ListView x:Name="ListFilm">
+            <ListView ItemsSource="{Binding MoviesList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
-                          
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}"  Margin="10,0,5,0"/>
+                                    <Label Text="{Binding Description}"  Margin="10,0,5,0" />
+                                    <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}" Margin="10,0,0,0"/>
+                                </StackLayout>
+                            </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

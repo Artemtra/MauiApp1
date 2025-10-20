@@ -23,7 +23,7 @@
                                 <Label Text="{Binding Name}"  Margin="10,0,5,0"/>
                                 <Label Text="{Binding SecondName}"  Margin="10,0,5,0" />
                                 <Label Text="{Binding ThrityName}" Margin="10,0,5,0" />
-                                <Label Text="{Binding BirthDay, StringFormat='{0:dd.MM.yyyy}'}" Margin="10,0,0,0"/>
+                                <Label Text="{Binding BirthDay, StringFormat='{0:dd.MM.yyy}'}" Margin="10,0,0,0"/>
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>

@@ -44,7 +44,8 @@ public partial class NewPage1 : ContentPage
         string targetFile = Path.Combine(FileSystem.Current.AppDataDirectory, "author.db");
         using (FileStream outputStream = File.Create(targetFile))
         {
-            await JsonSerializer.SerializeAsync(outputStream, AuthorList);
+            await JsonSerializer.SerializeAsync(outputStream, AuthorList);      
+            LoadFileAuthor();
         }
         AuthorList.Clear();
         LoadFileAuthor();
@@ -58,6 +59,7 @@ public partial class NewPage1 : ContentPage
             string a = File.ReadAllText(targetFile);
        
             AuthorList = JsonSerializer.Deserialize<ObservableCollection<Author>>(a);
+            
         }
     }
     private async void Button_Clicked_Home(object sender, EventArgs e)

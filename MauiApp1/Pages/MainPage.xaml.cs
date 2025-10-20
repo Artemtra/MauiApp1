@@ -1,16 +1,20 @@
 ﻿using MauiApp1.Models;
 using MauiApp1.Pages;
+using System.Collections.ObjectModel;
+using System.Text.Json;
 
 namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-      public List<Movies> MoviesList = new List<Movies>();
+        public ObservableCollection<Movies> MoviesList = new ObservableCollection<Movies>();
       private  int IdMovie = 0;
 
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
+            LoadFileMovie();
         }
         public void SaveMovie()
         {
@@ -23,6 +27,7 @@ namespace MauiApp1
             MoviesList.Add(movies);
             SaveFileMovie();
             IdMovie++;
+            OnPropertyChanged(nameof(MoviesList)); 
         }
   
 
@@ -31,29 +36,30 @@ namespace MauiApp1
             SaveMovie();
         }
 
-     
+
         private async void SaveFileMovie()
         {
-            string text = "";
 
             string targetFile = Path.Combine(FileSystem.Current.AppDataDirectory, "movie.db");
-            using FileStream outputStream = File.OpenWrite(targetFile);
-            using StreamWriter streamWriter = new StreamWriter(outputStream);
-            for (int i = 0; i > MoviesList.Count; i++)
+            using (FileStream outputStream = File.Create(targetFile))
             {
-                text = $"{MoviesList[i].Id}";
-                await streamWriter.WriteAsync(text);
-                text = $"{MoviesList[i].Name}";
-                await streamWriter.WriteAsync(text);
-                text = $"{MoviesList[i].Description}";
-                await streamWriter.WriteAsync(text);
-                text = $"{MoviesList[i].Date}";
-                await streamWriter.WriteAsync(text);
-             
+                await JsonSerializer.SerializeAsync(outputStream, MoviesList);
             }
-           
+            MoviesList.Clear();
+            LoadFileMovie();
         }
-       
+        private async void LoadFileMovie()
+        {
+
+            string targetFile = Path.Combine(FileSystem.Current.AppDataDirectory, "movie.db");
+            if (File.Exists(targetFile))
+            {
+                string a = File.ReadAllText(targetFile);
+                MoviesList = JsonSerializer.Deserialize<ObservableCollection<Movies>>(a);
+
+            }
+        }
+
         public async void Button_Clicked_To_Page2(object sender, EventArgs e)
         {
             //new NavigationPage(new NewPage1());
