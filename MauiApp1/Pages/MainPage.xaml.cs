@@ -7,7 +7,7 @@ namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-        public ObservableCollection<Movies> MoviesList = new ObservableCollection<Movies>();
+        public ObservableCollection<Movies> MoviesList { get; set; } = new ObservableCollection<Movies>();
       private  int IdMovie = 0;
 
         public MainPage()
@@ -15,6 +15,7 @@ namespace MauiApp1
             InitializeComponent();
             BindingContext = this;
             LoadFileMovie();
+         
         }
         public void SaveMovie()
         {
@@ -27,7 +28,7 @@ namespace MauiApp1
             MoviesList.Add(movies);
             SaveFileMovie();
             IdMovie++;
-            OnPropertyChanged(nameof(MoviesList)); 
+            OnPropertyChanged(nameof(MoviesList));
         }
   
 
@@ -56,8 +57,9 @@ namespace MauiApp1
             {
                 string a = File.ReadAllText(targetFile);
                 MoviesList = JsonSerializer.Deserialize<ObservableCollection<Movies>>(a);
-
+          
             }
+            OnPropertyChanged(nameof(MoviesList));
         }
 
         public async void Button_Clicked_To_Page2(object sender, EventArgs e)

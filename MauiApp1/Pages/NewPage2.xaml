@@ -8,18 +8,20 @@
             Text="Список фильмов"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Entry x:Name="AuthorId"/>
+        <Entry x:Name="MovieId"/>
+        <Button  Text="Сохранить"  Clicked="Button_Clicked_Save"/>
         <Button  Text="Home"  Clicked="Button_Clicked"/>
-        <ListView ItemsSource="{Binding AuthorList}">
+        <ListView ItemsSource="{Binding ListMovies}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal">
-
-                                <Label Text="{Binding Name}"  Margin="10,0,5,5"/>
+                                <Label Text="{Binding Title}"  Margin="10,0,5,5"/>
+                                <Label Text="{Binding FirstName}"  Margin="10,0,5,5" />
                                 <Label Text="{Binding SecondName}"  Margin="10,0,5,5" />
-                                <Label Text="{Binding ThrityName}" Margin="10,0,5,5" />
-                                <Label Text="{Binding BirthDay}" Margin="10,0,5,5"/>
+                                <Label Text="{Binding LastName}"  Margin="10,0,5,5" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>

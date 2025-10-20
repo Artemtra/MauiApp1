@@ -45,7 +45,6 @@ public partial class NewPage1 : ContentPage
         using (FileStream outputStream = File.Create(targetFile))
         {
             await JsonSerializer.SerializeAsync(outputStream, AuthorList);      
-            LoadFileAuthor();
         }
         AuthorList.Clear();
         LoadFileAuthor();
@@ -61,6 +60,7 @@ public partial class NewPage1 : ContentPage
             AuthorList = JsonSerializer.Deserialize<ObservableCollection<Author>>(a);
             
         }
+        OnPropertyChanged(nameof(AuthorList));
     }
     private async void Button_Clicked_Home(object sender, EventArgs e)
     {

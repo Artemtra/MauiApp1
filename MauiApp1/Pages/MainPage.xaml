@@ -13,7 +13,7 @@
             <Entry x:Name="DiscriptionText"/>
             <Label Text="Дата выхода"/>
             <DatePicker  x:Name="DiscriptionDate"/>
-            <Button  Text="Сохранить" x:Name="SaveMovieButton" Clicked="Button_Clicked_Movie"/>
+            <Button  Text="Сохранить" Clicked="Button_Clicked_Movie"/>
             <Button Text="перейти к авторам" Clicked="Button_Clicked_To_Page2"/>
             <Button  Text="перейти к списку фильмов"  Clicked="Button_Clicked_To_Page3"/>
             <ListView ItemsSource="{Binding MoviesList}">
