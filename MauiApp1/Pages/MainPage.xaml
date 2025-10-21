@@ -29,6 +29,7 @@
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
+                    
                 </ListView.ItemTemplate>
             </ListView>
         </VerticalStackLayout>
