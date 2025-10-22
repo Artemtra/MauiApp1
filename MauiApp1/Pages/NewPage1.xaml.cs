@@ -4,37 +4,24 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.Serialization.Json;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace MauiApp1;
 
 public partial class NewPage1 : ContentPage
 {
-  
- 
+    DBFile db = new DBFile();
     public NewPage1()
 	{
 		InitializeComponent();
         BindingContext = this;
-        
-        
+       
+
 
     }
-    public void SaveAuthor()
+    public async Task SaveAuthor()
     {
-        Author author = new Author();
-       
-        author.Id = DBFile.AuthorList.Count + 1;
-        author.Name = Name.Text;
-        author.SecondName = SecondName.Text;
-        author.ThrityName = ThirtyName.Text;
-        author.BirthDay = BirthDayText.Date;
-
-
-
-        DBFile.AuthorList.Add(author);
-  
-        DBFile.SaveFileAuthor();
-        OnPropertyChanged(nameof(DBFile.AuthorList));
+        db.AddAuthor(Name.Text, SecondName.Text, ThirtyName.Text, BirthDayText.Date);
     }
     private void Button_Clicked_Author(object sender, EventArgs e)
     {

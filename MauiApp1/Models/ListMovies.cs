@@ -8,6 +8,7 @@ namespace MauiApp1.Models
 {
     public class ListMovies 
     {
+        public int Id { get; set; } 
         public int IdAuthor { get; set; }
         public int IdMovies { get; set; }
         public string Title { get; set; }

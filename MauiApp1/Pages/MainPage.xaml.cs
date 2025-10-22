@@ -8,27 +8,19 @@ namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-
+        DBFile db = new DBFile();
 
         public MainPage()
         {
             InitializeComponent();
             BindingContext = this;
-            DBFile.LoadFileMovie();
+            db.LoadFileMovie();
          
         }
         public void SaveMovie()
         {
-            Movies movies = new Movies();
-            movies.Id = MoviesList.Count+1;
-            movies.Name = TitleText.Text;
-            movies.Description = DiscriptionText.Text;
-            movies.Date = DiscriptionDate.Date;
-
-            DBFile.MoviesList.Add(movies);
-            DBFile.SaveFileMovie();
-           
-            OnPropertyChanged(nameof(MoviesList));
+            db.AddMovies(TitleText.Text, DiscriptionText.Text, DiscriptionDate.Date);         
+            OnPropertyChanged(nameof(db.GetMovieList));
         }
   
 
