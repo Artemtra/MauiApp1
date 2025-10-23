@@ -15,15 +15,20 @@ namespace MauiApp1
             InitializeComponent();
             BindingContext = this;
             db.LoadFileMovie();
-         
+            Tablichka();
         }
         public void SaveMovie()
         {
-            db.AddMovies(TitleText.Text, DiscriptionText.Text, DiscriptionDate.Date);         
+            db.AddMovies(TitleText.Text, DiscriptionText.Text, DiscriptionDate.Date);
+            Tablichka();
             OnPropertyChanged(nameof(db.GetMovieList));
         }
   
+        public  async void Tablichka()
+        {
+            MovieListTablichka.ItemsSource = await db.GetMovieList();
 
+        }
         private void Button_Clicked_Movie(object sender, EventArgs e)
         {
             SaveMovie();

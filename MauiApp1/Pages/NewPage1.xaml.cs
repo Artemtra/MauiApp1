@@ -11,17 +11,25 @@ namespace MauiApp1;
 public partial class NewPage1 : ContentPage
 {
     DBFile db = new DBFile();
+
     public NewPage1()
 	{
 		InitializeComponent();
         BindingContext = this;
-       
+        LoadTablicka();
+        db.LoadFileAuthor();
 
 
     }
-    public async Task SaveAuthor()
+    public  void SaveAuthor()
     {
         db.AddAuthor(Name.Text, SecondName.Text, ThirtyName.Text, BirthDayText.Date);
+        LoadTablicka();
+        OnPropertyChanged(nameof(db.LoadFileAuthor));
+    }
+   public async void LoadTablicka()
+    {
+        Tablicka.ItemsSource = await db.GetAuthorList();
     }
     private void Button_Clicked_Author(object sender, EventArgs e)
     {

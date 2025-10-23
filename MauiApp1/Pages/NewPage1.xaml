@@ -12,9 +12,9 @@
         <Entry x:Name="ThirtyName" />
         <Label Text="День рождения"/>
         <DatePicker x:Name="BirthDayText"/>
-        <Button  Text="Сохранить" x:Name="SaveAuthorButton" Clicked="Button_Clicked_Author"/>
+        <Button  Text="Сохранить" Clicked="Button_Clicked_Author"/>
         <Button  Text="Home"  Clicked="Button_Clicked_Home"/>
-        <ListView ItemsSource="{Binding AuthorList}">
+        <ListView x:Name="Tablicka">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

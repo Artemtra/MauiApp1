@@ -17,14 +17,11 @@ public partial class NewPage2 : ContentPage
 	{
         InitializeComponent();
         
-
-
     }
     
     public void RemoveMovie()
     {
-
-
+       
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
